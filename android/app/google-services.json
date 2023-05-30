@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "787363787785",
+    "project_id": "azshop-2557c",
+    "storage_bucket": "azshop-2557c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787363787785:android:b9b78de76a2b8f761df4d8",
+        "android_client_info": {
+          "package_name": "www.codigowidgets.com.az_shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787363787785-vccb8jnbjr1otf2revakpjuk5637pg2i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDe6AruSoAdYTdI-Uv_GonU8ofdlSjOKQg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787363787785-vccb8jnbjr1otf2revakpjuk5637pg2i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
