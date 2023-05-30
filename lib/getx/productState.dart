@@ -4,7 +4,22 @@ import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-// ProductGetState  extends GetxController{
+class ProductGetState  extends GetxController{
 
-//  StreamController streamController = StreamController(); 
-// }
+ StreamController productStreamController = StreamController();
+
+ Stream<DocumentSnapshot> productStream = FirebaseFirestore.instance.collection("product").doc("312").snapshots();
+
+
+ void startStream (){
+  
+  productStream.listen((event) {
+   productStreamController.sink.add(event.data());
+  });
+ }
+
+ @override
+  void onClose() {
+  productStreamController.close();
+  }
+}

@@ -1,5 +1,6 @@
 import 'package:az_shop/app_pages/CartPage.dart';
 import 'package:az_shop/app_pages/HomePage.dart';
+import 'package:az_shop/app_pages/HomePageGetX.dart';
 import 'package:az_shop/app_pages/OrderPage.dart';
 import 'package:az_shop/app_pages/itemPage.dart';
 import 'package:firebase_core/firebase_core.dart';
