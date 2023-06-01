@@ -1,6 +1,7 @@
 import 'package:az_shop/getx/productState.dart';
 import 'package:az_shop/mywidgets/BottomBar.dart';
 import 'package:az_shop/mywidgets/HomePagePosts.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -14,6 +15,8 @@ class _HomePageState extends State<HomePage> {
 
   ProductGetState productGetState = Get.put(ProductGetState());
 
+  final CollectionReference _red = FirebaseFirestore.instance.collection("product");
+
   dynamic productVar;
 
   @override
@@ -22,10 +25,22 @@ class _HomePageState extends State<HomePage> {
       body: ListView(
         children: [
           StreamBuilder(
-              stream: productGetState.productStream,
-              builder: (BuildContext stContext, AsyncSnapshot theSnap){
-                productVar = theSnap.data;
-                return Text(productVar.toString());
+              stream: _red.snapshots(),
+              builder: (BuildContext stContext, AsyncSnapshot<QuerySnapshot> theSnap){
+                productVar = theSnap.data?.docs.toList();
+                num x= theSnap.data?.docs.length as num;
+                return Column(
+                  children: [
+                    for(int indx =0; indx <= x -1; indx ++)
+                    Column(
+                      children: [
+                        Text(productVar[indx]["expiry"].toString()),
+                        Text(productVar[indx]["name"].toString()),
+                        Text(productVar[indx]["quantity"].toString()),
+                      ],
+                    ),
+                  ],
+                );
               }),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
