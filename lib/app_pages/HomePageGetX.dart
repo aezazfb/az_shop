@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class HomePage extends StatefulWidget {
   @override
@@ -18,6 +19,14 @@ class _HomePageState extends State<HomePage> {
       FirebaseFirestore.instance.collection("product");
 
   dynamic productVar;
+  bool isWeb(){
+    return kIsWeb;
+    if (kIsWeb) {
+      // running on the web!
+    } else {
+      // NOT running on the web! You can check for additional platforms here.
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
