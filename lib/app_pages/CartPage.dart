@@ -20,7 +20,7 @@ class _CartPageState   extends State<CartPage>{
             children: [
               InkWell(
                 onTap: () {
-                  
+                  Navigator.pop(context);
                 },
                 child: Icon(Icons.arrow_back_ios_new),
               ),
